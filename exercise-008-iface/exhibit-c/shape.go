@@ -45,6 +45,26 @@ func (c *Circle) Area() float64 {
 	return math.Pi * c.radius * c.radius
 }
 
+//////////////
+// Triangle //
+//////////////
+
+type Triangle struct {
+	side1, side2, base, height float64
+}
+
+func (t *Triangle) Name() string {
+	return "Triangle"
+}
+
+func (t *Triangle) Perimeter() float64 {
+	return t.side1 + t.side2 + t.base
+}
+
+func (t *Triangle) Area() float64 {
+	return 0.5 * t.height * t.base
+}
+
 ////////////////
 // Efficiency //
 ////////////////
@@ -70,4 +90,7 @@ func main() {
 
 	c := Circle{radius: 10.0}
 	Efficiency(&c)
+
+	t := Triangle{side1: 10.0, side2: 10.0, base: 10.0, height: 10.0}
+	Efficiency(&t)
 }
